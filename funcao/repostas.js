@@ -113,24 +113,24 @@ const score = function (temporada) {
 
 //09
 // Função factory -- retorna a instância de um objeto:
-const pessoa = (nome, nota) => {
-    return {
-        nome,
-        nota,
-        colegio: 'CEFF'
-    }
-}
-const pessoa1 = pessoa('Renata', 36)
-// pessoa1.colegio = 'FF'
-// console.log(pessoa1)
+// const pessoa = (nome, nota) => {
+//     return {
+//         nome,
+//         nota,
+//         colegio: 'CEFF'
+//     }
+// }
+// const pessoa1 = pessoa('Renata', 36)
+// // pessoa1.colegio = 'FF'
+// // console.log(pessoa1)
 
-// Função construtora -- Retorna a instância de uma função equivalente a um obj.
-function aluno(nome, nota) {
-    this.nome = nome
-    this.nota = nota
-    this.colegio = 'CEFC'
-}
-const aluno1 = new aluno('Luiz', 37)
+// // Função construtora -- Retorna a instância de uma função equivalente a um obj.
+// function aluno(nome, nota) {
+//     this.nome = nome
+//     this.nota = nota
+//     this.colegio = 'CEFC'
+// }
+// const aluno1 = new aluno('Luiz', 37)
 // aluno1.colegio = 'FC'
 // console.log(aluno1)
 
@@ -428,3 +428,244 @@ function saque (valor) {
 }
 
 // saque(1)
+
+// 21)
+
+const pagarSeguro = idade => {
+    if (verificaInt(idade) && idade >= 0) {
+        if (idade < 10) {
+            return 180
+        } else if (idade <= 30) {
+            return 150
+        } else if (idade <= 60) {
+            return 195
+        } else {
+            return 230
+        }
+    } else {
+        return -1
+    }
+}
+
+// console.log(pagarSeguro(-10.5))
+
+// 22)
+function anuidade (mes, valor) {
+    if (mes >= 1 && mes <= 12) {
+        for (let i = 1; i <= mes; i++) {
+            valor *= 1.05
+        }
+        return valor.toFixed(2)
+    } else {
+        return -1
+    }
+}
+
+// console.log(anuidade(3, 100))
+
+// 23
+const acharMaior = notas => notas.sort()
+function mediaFinal (codigo, nota1, nota2, nota3) {
+    notas = [nota1, nota2, nota3]
+    acharMaior(notas)
+    console.log(notas)
+    let resultado
+    notas.push(((notas[0] * 0.4 + notas[1] * 0.3 + notas[2] * 0.3)/(0.4 + 0.3 + 0.3)))
+    if (notas[3] > 5)
+        resultado = 'APROVADO'
+    else
+        resultado = 'REPROVADO'
+    console.log(`Aluno ${codigo}: média: ${notas[3].toFixed(2)}: ${resultado}}`)
+}
+// mediaFinal(1001, 5.5, 10, 10)
+
+// 24)
+const helloOnze = _ => {
+    let cont = 0
+    while (cont != 11) { // printar gasta 1, preciso de 11 para printar 11
+        console.log('Hello World')
+        cont ++
+    }
+}
+// helloOnze()
+
+// 25)
+function umACinquenta (_) {
+    for (let i = 1; i < 51; i++) {
+        console.log(i)
+    }
+}
+
+// console.log(umACinquenta())
+// 26)
+let pares = _ => {for (let i = 0; i <= 100; i+=2) {if(i != 0) console.log(i)}}
+// console.log(pares())
+
+// 27)
+function taxaCrescimento (altura1, altura2, taxa1, taxa2) {
+    function geraCrianca (altura, taxa) {
+        this.altura = altura
+        this.taxa = taxa
+    }
+    crianca1 = new geraCrianca(altura1, taxa1)
+    crianca2 = new geraCrianca(altura2, taxa2)
+    let cont = 0
+    
+    if (crianca1.altura > crianca2.altura) {
+        while (crianca2.altura <= crianca1.altura && cont != 100) {
+            crianca1.altura = crianca1.altura * (1 + crianca1.taxa)
+            crianca2.altura = crianca2.altura * (1 + crianca2.taxa)
+            cont++
+            console.log(cont)
+            console.log(crianca1.altura)
+            console.log(crianca2.altura)
+        }
+        if(cont != 100)
+            console.log(`A criança 2 passará a criança 1 em ${cont} ano(s).`)
+        else
+            console.log('A criança menor jamais ultrapassa a outra.')
+    } else if (crianca2.altura > crianca1.altura) {
+        while (crianca1.altura <= crianca2.altura && cont != 100) {
+            crianca1.altura = crianca1.altura * (1 + crianca1.taxa)
+            crianca2.altura = crianca2.altura * (1 + crianca2.taxa)
+            cont ++
+            console.log(cont);
+            console.log(crianca2.altura);
+            console.log(crianca1.altura);
+        }
+        if(cont != 100)
+            console.log(`A criança 1 passará a criança 2 em ${cont} ano(s).`)
+        else
+            console.log('A criança menor jamais ultrapassa a outra.')
+    } else {
+        console.log("As duas crianças possuem a mesma altura!")
+    }
+}
+
+// taxaCrescimento(150, 100, 0.5, 0.6)
+// taxaCrescimento(100, 150, 0.6, 0.5)
+
+// 28)
+const intParImpar = function intParImpar (vetor) {
+    let nPar = 0, nImpar = 0
+    for (let i = 0; i < vetor.length; i++) {
+        if (vetor[i] % 2 == 0) {
+            nPar +=1
+        } else {
+            nImpar++
+        }
+    }
+    return [nPar, nImpar]
+}
+// console.log(intParImpar([2,8,12,3,6,8,7]))
+// console.log(typeof intParImpar)
+
+// 29)
+const intervaloVetor = (vetor) => {
+    let cont1 = 0, cont2 = 0
+    for (let i = 0; i < vetor.length; i++) {
+        if (vetor[i] >= 10 && vetor[i] <= 20) {
+            cont1++
+        } else {
+            cont2++
+        }
+    }
+    console.log("Temos " + cont1 + " valores entre 10 e 20, e " + cont2 + " estão fora do intervalo.")
+}
+// intervaloVetor([10, 20, 15, 1, 50])
+
+// 30)
+function maiorNoVetor (vetor) {
+    let swap1 = vetor[0], swap2 = vetor[0]
+    
+    for (let i = 0; i < vetor.length; i++) {
+        if (vetor[i] > swap1) {
+            swap1 = vetor[i]
+        }
+        if (vetor[i] < swap2) {
+            swap2 = vetor[i]
+        }
+    }
+    console.log(`O menor valor é ${swap2} e o maior é ${swap1}`)
+}
+
+// maiorNoVetor([5 , 0.3, 1, 200, -50, -49, 3, 200.5])
+
+// 31)
+
+const contNegativo = vetor => {
+    let cont = 0
+    for (let i = 0; i < vetor.length; i++) {
+        if (vetor[i] < 0) {
+            cont++
+        }
+    }
+    console.log(`Existem ${cont} números negativos neste vetor.`)
+}
+// contNegativo([-2,-1,0,1,2])
+
+// 32)
+function media (vetor) {
+    let numerador = 0
+    for (let i = 0; i < vetor.length; i++) {
+        numerador += vetor[i]
+    }
+    console.log(`A média aritmética simples de ${vetor} é = ${(numerador/ (vetor.length)).toFixed(2)}`)
+}
+// media ([5, 10 ,5])
+
+// 33)
+const vetorInteiro = [1, 3, 2, 4]
+const vetorString = ['um', 'dois', 'três', 'quatro']
+const vetorDouble = [3.5, 5.9, 7.8, 8.8]
+
+const vetorConcat1 = vetorInteiro.concat(vetorString, vetorDouble)
+const vetorConcat2 =  vetorString.concat(vetorInteiro, vetorDouble)
+
+// console.log(vetorConcat1, vetorConcat2)
+
+// 34)
+function comparaString (string1, string2) {
+    string1.toLowerCase
+    string2.toLowerCase
+    let flag = 0
+    let swap
+    if (string2 > string1) {
+        swap = string2
+        string2 = string1
+        string1 = swap
+    }
+
+    for (let i = 0; i < string1.length; i++) {
+        for (let j = 0; j <= string2.length; j++) {
+                if (j != string2.length) {
+                    if (string1[i] ==  string2[j]) {
+                        break
+                    }
+                } else {
+                    return false
+                }
+            }
+    }
+    //     for (let i = 0; i < string2.length; i++) {
+    //         j = 0 // Se eu usar break (linha 651) j não reinicia
+    //         console.log('i='+i)
+    //         for (let j = 0; j <= string1.length; j++) {
+    //             console.log(j)
+    //             if (j != string1.length) {
+    //                 if (string1[i] == string2[j]) {
+    //                     console.log('com i = ', i, 'com j =', j, 'Achou = ', string2[i])
+    //                     break
+    //                 } else {
+    //                     continue
+    //                 }
+    //             } else {
+    //                 return false
+    //             }
+    //         }
+    //     }
+    return true
+    // Não fazia sentido eu testar um caso com a string maior para cada elemento da menor pois, após o tamanho da menor ainda existiriam caractéres na string maior
+}
+
+console.log(comparaString('abcbbbc', 'cba'))
