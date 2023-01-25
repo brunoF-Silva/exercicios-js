@@ -615,9 +615,9 @@ function media (vetor) {
 // media ([5, 10 ,5])
 
 // 33)
-const vetorInteiro = [1, 3, 2, 4]
-const vetorString = ['um', 'dois', 'três', 'quatro']
-const vetorDouble = [3.5, 5.9, 7.8, 8.8]
+let vetorInteiro = [1, 3, 2, 4]
+let vetorString = ['um', 'dois', 'três', 'quatro']
+let vetorDouble = [3.5, 5.9, 7.8, 8.8]
 
 const vetorConcat1 = vetorInteiro.concat(vetorString, vetorDouble)
 const vetorConcat2 =  vetorString.concat(vetorInteiro, vetorDouble)
@@ -647,25 +647,115 @@ function comparaString (string1, string2) {
                 }
             }
     }
-    //     for (let i = 0; i < string2.length; i++) {
-    //         j = 0 // Se eu usar break (linha 651) j não reinicia
-    //         console.log('i='+i)
-    //         for (let j = 0; j <= string1.length; j++) {
-    //             console.log(j)
-    //             if (j != string1.length) {
-    //                 if (string1[i] == string2[j]) {
-    //                     console.log('com i = ', i, 'com j =', j, 'Achou = ', string2[i])
-    //                     break
-    //                 } else {
-    //                     continue
-    //                 }
-    //             } else {
-    //                 return false
-    //             }
-    //         }
-    //     }
     return true
     // Não fazia sentido eu testar um caso com a string maior para cada elemento da menor pois, após o tamanho da menor ainda existiriam caractéres na string maior
 }
 
-console.log(comparaString('abcbbbc', 'cba'))
+// console.log(comparaString('abcbbbc', 'cba'))
+
+// 35)
+const vetorPilha = [1, 2, 3, 4, 5]
+const vetorAdiciona = [6, 7, 8, 9, 10]
+
+for (let i = 0; i < vetorAdiciona.length; i++) {
+    vetorPilha.push(vetorAdiciona[i])
+}
+// console.log(vetorPilha)
+
+// 36)
+function multVet (vetor, num) {
+    for (let i = 0; i < vetor.length; i++) {
+        vetor[i] = vetor[i] * num
+    }
+    return vetor
+}
+const multVetCinco = (vetor, num) => {
+    if (num >= 5) {
+        for (i = 0; i < vetor.lenth; i++) {
+            vetor[i] = vetor[i] * num
+        }
+        return vetor
+    }
+}
+
+vetorInteiro = [1, 2, 3] 
+// console.log(multVet(vetorInteiro, 5)) 
+// console.log(multVetCinco(vetorInteiro, 5))
+
+// 37)
+const progressaoAritmetica = (n, a1, r) => {
+    let vetor = [a1]
+    for (i = 0; i < n; i++) {
+        if(i != 0) {
+            vetor[i] = vetor[i-1] + r
+        }
+    }
+    return vetor
+}
+
+function progressaoGeometrica (n, a1, r) {
+    let vetor = [a1]
+    for (i = 0; i < n; i++) {
+        if (i != 0) {
+            vetor[i] = vetor[i - 1] * r
+        }
+    }
+    return vetor
+}
+// console.log(progressaoAritmetica(6, 2, 2))
+// console.log(progressaoGeometrica(6, 2, 2))
+
+// 38)
+function printaIntervalo(inicio = 0, fim = 100) {
+    if (inicio > fim) { // Ver como fazer sem if
+        let swap = inicio
+        inicio = fim
+        fim = swap
+    }
+    for (let i = inicio; i <= fim; i++) {
+        if (i % 2 != 0) {
+            console.log(i)
+        }
+    }
+}
+// printaIntervalo(10, 3)
+
+// 39)
+function trocaVetor (vetor1, vetor2) {
+    if (vetor1.length == vetor2.length) {
+        for (let i = 0; i < vetor1.length; i++) {
+            vetor1.push(vetor2[i])
+            vetor2.push(vetor1[i])
+            
+            vetor1[i] = vetor1[vetor1.length - 1]
+            vetor2[i] = vetor2[vetor2.length - 1]
+            vetor1.pop()
+            vetor2.pop()
+        }
+    }
+    return [vetor1, vetor2]
+}
+
+// console.log(trocaVetor([1, 2, 3], [3, 2, 1]))
+
+// 40)
+
+const trocaVirgula = function(nota) {
+    return nota = nota.replace(',','.')
+} 
+function notasAmericanas (nota) {
+    nota = Number(trocaVirgula(nota))
+    
+    if (nota >= 0 && nota <= 4.9) {
+        console.log('D')
+    } else if (nota <= 6.9) {
+        console.log('C')
+    } else if (nota <= 8.9) {
+        console.log('B')
+    } else if (nota < 10) {
+        console.log('A')
+    } else {
+        console.log('Nota inválida!')
+    }
+}
+// notasAmericanas('99,0')
