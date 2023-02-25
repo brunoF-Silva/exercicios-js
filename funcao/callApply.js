@@ -1,3 +1,4 @@
+
 /*
 Existem muitas formas de se chamar uma função, diretamente no escopo global, a partir de um objeto, com a função call e com a apply.
 Função em JS é um tipo e por isso existem outras funções dentro dele (.bind, .call, .apply)
@@ -15,7 +16,7 @@ const produto = {
 
 global.preco = 20
 global.desc = 0.1
-console.log(getPreco())
+console.log(getPreco()) // Procura os atributos, e os encontra, no escopo global
 console.log(produto.getPreco()) // Chamar uma função atravez de um objeto significa utilizar o contexto de produto para resolver o this.
 
 const carro = { preco: 49990, desc: 0.20 }

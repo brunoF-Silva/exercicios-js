@@ -1,4 +1,4 @@
-// Posso colocar dentro do objeto gerado um conjunto de funções.
+// Posso colocar dentro do objeto gerado, um conjunto de funções.
 function criarProduto(nome, preco) {
     return {
         nome,

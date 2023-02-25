@@ -22,6 +22,8 @@ const p2 = criarPessoa('João')
 p2.falar()
 
 // No browser, se eu fizer:
-document.getElementsByTagName('body')[0].onclick = p1.falar
+//document.getElementsByTagName('body')[0].onclick = p1.falar
 
 // O resultado sera "meu nome é undefined", pois o this aqui quem disporaou a chamada dessa função fez o this variar. Isso não acontece com p2.falar pois não temos isso em funções factory.
+
+console.log(typeof p2)

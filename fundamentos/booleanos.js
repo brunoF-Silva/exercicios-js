@@ -1,3 +1,4 @@
+// TypeScript (and JavaScript) lets you convert a non-Boolean value to Boolean using the double exclamation shorthand.
 let isAtivo = false
 console.log(isAtivo)
 

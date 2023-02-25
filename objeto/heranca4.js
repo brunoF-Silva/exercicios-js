@@ -1,7 +1,7 @@
 /*
-Além da função geradora ter um atributo prototype que referência ela mesma, ela também tem um atributo __proto__ característico de seus objetos que referência Function.prototype
+Além da função geradora (construtora) ter um atributo prototype que referência ela mesma, ela também tem um atributo __proto__ característico de seus objetos que referência Function.prototype
 
-Já um objeto instanciado a partir de uma função tem um atributo __proto__ que referencia por padrão a própria função geradora (ao contrário dos objetos geradas pelo método tradicional/Object() pois eles apontam por padrão para Object.prototype. Ambos Function.prototype e Object.prototype são objetos vazios (VERIFICAR). Objetos instanciados de maneira convencional não possuem o atributo.prototype (só sua função geradora Object).
+E um objeto instanciado a partir dessa função geradora tem um atributo __proto__ que referencia por padrão a própria função geradora (ao contrário dos objetos geradas pelo método tradicional/= new Object pois eles apontam por padrão para Object.prototype. Ambos Function.prototype e Object.prototype são objetos vazios (VERIFICAR). Objetos instanciados de maneira convencional não possuem o atributo.prototype (só sua função geradora Object).
 */
 function MeuObjeto() {} // Função construtora
 console.log(MeuObjeto.prototype) // Seu protótipo existe e é um objeto vazio
