@@ -9,8 +9,8 @@ console.log(Object.keys(pessoa))
 console.log(Object.values(pessoa))
 console.log(Object.entries(pessoa)) // Retorna uma array
 
-Object.entries(pessoa).forEach(e => { //Elemento "e" se transforma na array
-    console.log(`${e[0]}: ${e[1]}}`)
+Object.entries(pessoa).forEach(e => { //Elemento "e" se transforma nas arrays mais internas
+    console.log(`${e[0]}: ${e[1]}`)
 })
 
 Object.entries(pessoa).forEach(([chave, valor]) => {
@@ -31,7 +31,6 @@ const destino = { a: 1 }
 const objeto1 = { b:2 }
 const objeto2 = { c:3, a:4 } // a é sobrescirto
 const obj = Object.assign(destino, objeto1, objeto2) // Podemos ter quantos objetos quisermos.
-
 Object.freeze(obj)
 obj.c = 1234
 console.log(obj)
