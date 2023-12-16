@@ -1,4 +1,4 @@
-// .filter é uma f. callback que retorna booleano para uma determinada condição para cada elemento que eu passar. O true significa que eu devo adicionar o elemento na array que está sendo gerada, o false não.
+// .filter é uma funçao que recebe uma callback e retorna booleano para uma determinada condição para cada elemento que eu passar. O true significa que eu devo adicionar o elemento na array que está sendo gerada, o false não.
 const notas = [7.7, 6.5, 5.2, 8.9, 3.6, 7.1, 9.0]
 // Sem callbacks
 const notasBaixas1 = []
