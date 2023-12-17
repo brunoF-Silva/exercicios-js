@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Exercícios HTML</title>
+</head>
+<body>
+  <header>
+    <h1>Exercícios HTML</h1>
+  </header>
+  <nav>
+        <a href wm-nav="exercicios/teste.html">00 - Teste</a> |
+        <a href wm-nav="exercicios/texto1.html">01 - Texto 1</a> |
+        <a href wm-nav="exercicios/texto2.html">02 - Texto 2</a> |
+        <a href wm-nav="exercicios/listas.html">03 - Listas</a> |
+        <a href wm-nav="exercicios/listaAninhada.html">04 - Lista Aninhada</a> |
+        <a href wm-nav="exercicios/links.html">05 - Links</a> |
+        <a href wm-nav="exercicios/tabela.html">06 - Tabela</a> |
+        <a href wm-nav="exercicios/form/form.html">07 - Formulário</a> |
+        <a href wm-nav="exercicios/imagens.html">08 - Imagens</a> |
+        <a href wm-nav="exercicios/video.html">09 - Vídeo</a> |
+        <a href wm-nav="exercicios/tagsNaoVisuais.html">10 - Tags Não Visuais</a> |
+    </nav>
+  <section id="conteudo"></section>
+  <footer>
+    <br>
+    Curso de Web Moderno
+  </footer>
+  <script>
+    document.querySelectorAll('[wm-nav]').forEach(link => { //usando propriedade personalizada
+
+      const conteudo = document.getElementById('conteudo')
+
+      link.onclick = function(e) { //"e" é o evento gerado pelo clique
+        e.preventDefault() // previne que a navegação, que é o evento padrão de um clique em um link, ocorra
+        fetch(link.getAttribute('wm-nav')) //caso busque procure pela tag 'a' na linha 25, aqui basta colocar href
+          .then(resp => resp.text()) //resp.text() pega o conteúdo html da página que eu fiz a requisição, resp.text() retorna uma promise que será resolvida no próximo then, esse sim terá acesso ao html que buscamos
+          .then(html => conteudo.innerHTML = html) //substitui o conteúdo da section com id conteudo. Assim não interpreta tag script
+      }
+    })
+  </script>
+</body>
+</html>
